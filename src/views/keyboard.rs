@@ -29,19 +29,106 @@ impl Keyboard {
     pub fn new(cx: &mut Context) -> Handle<Self> {
         let h = Keyboard::default()
             .build(cx, |cx| {
-                KeyboardKey::new(cx, KeyCode::KEY_ESC, "ESC");
-                KeyboardKey::new(cx, KeyCode::KEY_F1, "F1");
-                KeyboardKey::new(cx, KeyCode::KEY_F2, "F2");
-                KeyboardKey::new(cx, KeyCode::KEY_F3, "F3");
-                KeyboardKey::new(cx, KeyCode::KEY_F4, "F4");
-                KeyboardKey::new(cx, KeyCode::KEY_F5, "F5");
-                KeyboardKey::new(cx, KeyCode::KEY_F6, "F6");
-                KeyboardKey::new(cx, KeyCode::KEY_F7, "F7");
-                KeyboardKey::new(cx, KeyCode::KEY_F8, "F8");
-                KeyboardKey::new(cx, KeyCode::KEY_F9, "F9");
-                KeyboardKey::new(cx, KeyCode::KEY_F10, "F10");
-                KeyboardKey::new(cx, KeyCode::KEY_F11, "F11");
-                KeyboardKey::new(cx, KeyCode::KEY_F12, "F12");
+                HStack::new(cx, |cx| {
+                    KeyboardKey::new(cx, KeyCode::KEY_ESC, "ESC");
+                    Element::new(cx).class("key-space");
+                    KeyboardKey::new(cx, KeyCode::KEY_F1, "F1");
+                    KeyboardKey::new(cx, KeyCode::KEY_F2, "F2");
+                    KeyboardKey::new(cx, KeyCode::KEY_F3, "F3");
+                    KeyboardKey::new(cx, KeyCode::KEY_F4, "F4");
+                    Element::new(cx).class("key-space").class("x0-5");
+                    KeyboardKey::new(cx, KeyCode::KEY_F5, "F5");
+                    KeyboardKey::new(cx, KeyCode::KEY_F6, "F6");
+                    KeyboardKey::new(cx, KeyCode::KEY_F7, "F7");
+                    KeyboardKey::new(cx, KeyCode::KEY_F8, "F8");
+                    Element::new(cx).class("key-space").class("x0-5");
+                    KeyboardKey::new(cx, KeyCode::KEY_F9, "F9");
+                    KeyboardKey::new(cx, KeyCode::KEY_F10, "F10");
+                    KeyboardKey::new(cx, KeyCode::KEY_F11, "F11");
+                    KeyboardKey::new(cx, KeyCode::KEY_F12, "F12");
+                })
+                .class("keyboard-row");
+
+                HStack::new(cx, |cx| {
+                    KeyboardKey::new(cx, KeyCode::KEY_GRAVE, "`~");
+                    KeyboardKey::new(cx, KeyCode::KEY_1, "1!");
+                    KeyboardKey::new(cx, KeyCode::KEY_2, "2@");
+                    KeyboardKey::new(cx, KeyCode::KEY_3, "3#");
+                    KeyboardKey::new(cx, KeyCode::KEY_4, "4$");
+                    KeyboardKey::new(cx, KeyCode::KEY_5, "5%");
+                    KeyboardKey::new(cx, KeyCode::KEY_6, "6^");
+                    KeyboardKey::new(cx, KeyCode::KEY_7, "7&");
+                    KeyboardKey::new(cx, KeyCode::KEY_8, "8*(");
+                    KeyboardKey::new(cx, KeyCode::KEY_9, "9)");
+                    KeyboardKey::new(cx, KeyCode::KEY_0, "0)");
+                    KeyboardKey::new(cx, KeyCode::KEY_MINUS, "-_");
+                    KeyboardKey::new(cx, KeyCode::KEY_EQUAL, "=+");
+                    KeyboardKey::new(cx, KeyCode::KEY_BACKSPACE, "BACK").class("x2");
+                })
+                .class("keyboard-row");
+
+                HStack::new(cx, |cx| {
+                    KeyboardKey::new(cx, KeyCode::KEY_TAB, "TAB").class("x1-5");
+                    KeyboardKey::new(cx, KeyCode::KEY_Q, "Q");
+                    KeyboardKey::new(cx, KeyCode::KEY_W, "W");
+                    KeyboardKey::new(cx, KeyCode::KEY_E, "E");
+                    KeyboardKey::new(cx, KeyCode::KEY_R, "R");
+                    KeyboardKey::new(cx, KeyCode::KEY_T, "T");
+                    KeyboardKey::new(cx, KeyCode::KEY_Y, "Y");
+                    KeyboardKey::new(cx, KeyCode::KEY_U, "U");
+                    KeyboardKey::new(cx, KeyCode::KEY_I, "I");
+                    KeyboardKey::new(cx, KeyCode::KEY_O, "O");
+                    KeyboardKey::new(cx, KeyCode::KEY_P, "P");
+                    KeyboardKey::new(cx, KeyCode::KEY_LEFTBRACE, "[{");
+                    KeyboardKey::new(cx, KeyCode::KEY_RIGHTBRACE, "]}");
+                    KeyboardKey::new(cx, KeyCode::KEY_BACKSLASH, "\\|").class("x1-5");
+                })
+                .class("keyboard-row");
+
+                HStack::new(cx, |cx| {
+                    KeyboardKey::new(cx, KeyCode::KEY_CAPSLOCK, "CAPS").class("x1-75");
+                    KeyboardKey::new(cx, KeyCode::KEY_A, "A");
+                    KeyboardKey::new(cx, KeyCode::KEY_S, "S");
+                    KeyboardKey::new(cx, KeyCode::KEY_D, "D");
+                    KeyboardKey::new(cx, KeyCode::KEY_F, "F");
+                    KeyboardKey::new(cx, KeyCode::KEY_G, "G");
+                    KeyboardKey::new(cx, KeyCode::KEY_H, "H");
+                    KeyboardKey::new(cx, KeyCode::KEY_J, "J");
+                    KeyboardKey::new(cx, KeyCode::KEY_K, "K");
+                    KeyboardKey::new(cx, KeyCode::KEY_L, "L");
+                    KeyboardKey::new(cx, KeyCode::KEY_SEMICOLON, ";:");
+                    KeyboardKey::new(cx, KeyCode::KEY_APOSTROPHE, "\'\"");
+                    KeyboardKey::new(cx, KeyCode::KEY_ENTER, "ENTER").class("x2-25");
+                })
+                .class("keyboard-row");
+
+                HStack::new(cx, |cx| {
+                    KeyboardKey::new(cx, KeyCode::KEY_LEFTSHIFT, "LSHIFT").class("x2-25");
+                    KeyboardKey::new(cx, KeyCode::KEY_Z, "Z");
+                    KeyboardKey::new(cx, KeyCode::KEY_X, "X");
+                    KeyboardKey::new(cx, KeyCode::KEY_C, "C");
+                    KeyboardKey::new(cx, KeyCode::KEY_V, "V");
+                    KeyboardKey::new(cx, KeyCode::KEY_B, "B");
+                    KeyboardKey::new(cx, KeyCode::KEY_N, "N");
+                    KeyboardKey::new(cx, KeyCode::KEY_M, "M");
+                    KeyboardKey::new(cx, KeyCode::KEY_COMMA, ",<");
+                    KeyboardKey::new(cx, KeyCode::KEY_DOT, ".>");
+                    KeyboardKey::new(cx, KeyCode::KEY_SLASH, "/?");
+                    KeyboardKey::new(cx, KeyCode::KEY_RIGHTSHIFT, "RSHIFT").class("x2-75");
+                })
+                .class("keyboard-row");
+
+                HStack::new(cx, |cx| {
+                    KeyboardKey::new(cx, KeyCode::KEY_LEFTCTRL, "LCTRL").class("x1-5");
+                    KeyboardKey::new(cx, KeyCode::KEY_LEFTMETA, "SUPER");
+                    KeyboardKey::new(cx, KeyCode::KEY_LEFTALT, "LALT").class("x1-25");
+                    KeyboardKey::new(cx, KeyCode::KEY_SPACE, "SPACE").class("x6-5");
+                    KeyboardKey::new(cx, KeyCode::KEY_RIGHTALT, "RALT").class("x1-25");
+                    KeyboardKey::new(cx, KeyCode::KEY_RIGHTMETA, "SUPER");
+                    KeyboardKey::new(cx, KeyCode::KEY_HELP, "HELP");
+                    KeyboardKey::new(cx, KeyCode::KEY_RIGHTCTRL, "RCTRL").class("x1-5");
+                })
+                .class("keyboard-row");
             })
             .on_build(|cx| {
                 get_keyboard_events(cx);

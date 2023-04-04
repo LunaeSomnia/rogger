@@ -5,12 +5,19 @@
 
 :root {
     background-color: #222222;
+    width: auto;
+    height: auto;
 }
 
 keyboard {
-    layout-type: row;
-    col-between: 8px;
     child-space: 16px;
+    row-between: 4px;
+    height: auto;
+}
+
+.keyboard-row {
+    height: auto;
+    col-between: 4px;
 }
 
 key {
@@ -20,10 +27,51 @@ key {
     background-color: #323232;
     border-width: 1px;
     border-color: #121212;
-    child-space: 4px;
+    child-space: 8px;
 }
 
 key:checked {
     background-color: #4faa57;
     color: #fff;
+}
+
+.key-space {
+    width: 40px;
+    height: 48px;
+}
+
+.x0-5 {
+    width: 24px;
+}
+
+.x1-25 {
+    width: 60px;
+}
+
+.x1-5 {
+    width: 72px;
+}
+
+.x1-75 {
+    width: 84px;
+}
+
+.x2 {
+    width: 96px;
+}
+
+.x2-25 {
+    width: 108px;
+}
+
+.x2-5 {
+    width: 120px;
+}
+
+.x2-75 {
+    width: 132px;
+}
+
+.x6-5 {
+    width: 312px;
 }

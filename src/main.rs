@@ -26,6 +26,5 @@ fn main() {
     })
     .ignore_default_theme()
     .resizable(false)
-    .inner_size((800, 400))
     .run();
 }
