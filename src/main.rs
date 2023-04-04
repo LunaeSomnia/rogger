@@ -26,5 +26,6 @@ fn main() {
     })
     .ignore_default_theme()
     .resizable(false)
+    .title("Rogger")
     .run();
 }
